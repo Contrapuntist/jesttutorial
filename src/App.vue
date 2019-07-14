@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      generic: 'hellow world'
+      msg: 'hello jest and vue testing'
     };
 
   }
@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div>{{ generic }}</div>  
+  <div>{{ msg }}</div>  
 </template>
 
 <style scoped>
