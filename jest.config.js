@@ -2,8 +2,12 @@ module.exports = {
   "verbose": true,
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "src/**/*.{js,vue}",
-    "!**/node_modules/**"
+    "**/*.{js,vue}",
+    "!**/node_modules/**",
+    "!**/coverage/**",
+    "!jest.config.js",
+    "!config.js",
+    "!webpack.**"
   ],
   "moduleFileExtensions": [
     "js",
