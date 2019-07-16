@@ -1,0 +1,23 @@
+/* app css */
+
+/** 
+
+#687864 - olive
+#31708e - sea blue
+#5085a5 - blue with grey
+#8fc1e3 - sky blue
+#f7f9fb - whitish grey
+
+*/
+
+
+header {
+  width: 100%;
+  background-color: #687864 ;
+}
+
+h1 {
+  font-size: 32px;
+  padding: 20px;
+  color: #f7f9fb;
+}

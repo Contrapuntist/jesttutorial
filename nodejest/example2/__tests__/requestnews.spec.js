@@ -1,5 +1,5 @@
 import { getNews } from '../newsrequests';
-import mockData from './../../data/musicnews.json';
+import mockData from './../../../data/musicnews.json';
 import axios from 'axios';
 jest.mock('axios');
 

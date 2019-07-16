@@ -2,7 +2,7 @@
 
 import * as parseNews from './../processnews';
 import axios from 'axios';
-import mockData from './../../data/musicnews.json'; // mocked data from guardian api response
+import mockData from './../../../data/musicnews.json'; // mocked data from guardian api response
 
 jest.mock('axios');
 

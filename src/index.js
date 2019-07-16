@@ -1,4 +1,5 @@
-//import './css/main.css';
+import './css/reset.css';
+import './css/app.css';
 import Vue from 'vue';
 import App from './App.vue';
 //import store from './store';
