@@ -1,29 +1,38 @@
 // https://stackoverflow.com/questions/47402005/jest-mock-how-to-mock-es6-class-default-import-using-factory-parameter
 
-const { processNews } = require('../processnews');
+import * as parseNews from './../processnews';
+import axios from 'axios';
+import mockData from './../../data/musicnews.json'; // mocked data from guardian api response
+
+jest.mock('axios');
 
 describe('Processing news', () => {
-
-  // What's the problem with this test? 
-  it('processNews function should not return null', () => {
-    const processedNews = processNews();
-    expect(processedNews).not.toBeNull();
+  it('when processNews is called, should return an array of objects', async () => {
+    axios.get.mockResolvedValue(mockData);
+    const parsedNews = await parseNews.processNews();
+    //console.log(parsedNews);
+    expect(axios.get).toHaveBeenCalled(); 
+    expect(Array.isArray(parsedNews)).toBe(true);
+    expect(typeof parsedNews[0]).toBe('object');
   });
 
-  /** 
-   * Ordinarily, testing newsrequest.js should be in its own suite
-   */
-  it('when processNews is called, should return an array', () => {
-    //const spy = spyOn(axios, 'get');
-    const processedNews = processNews();
-    //expect(spy).toHaveBeenCalled();
-    expect(Array.isArray(processedNews)).toBe(true);
+  it('processNews function ', async () => {
+    axios.get.mockResolvedValue(mockData);
+    const processnewsSpy = jest.spyOn(parseNews, 'processNews');
+    const parsedNews = await parseNews.processNews()
 
+    parsedNews.forEach(article => {
+      expect(article.hasOwnProperty('headline')).toBe(true);
+    });
+    expect(processnewsSpy).toHaveBeenCalledTimes(1);
+    //console.log(processnewsSpy)
   });
 
-  // it('processNews function should return with array of objects with length of 10', () => {
-  //   const processedNews = processNews();
+  it.todo('write test for makeNewsArr function');
 
-  // })
+
+  afterEach(() => {
+    jest.clearAllMocks(); // clean up between each unit test; ensure clean data and mocking within each test
+  });
 
 });

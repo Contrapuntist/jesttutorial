@@ -1,6 +1,6 @@
-const { getNews } = require('../newsrequests');
-const mockData = require('./../../data/musicnews.json');
-const axios = require('axios');
+import { getNews } from '../newsrequests';
+import mockData from './../../data/musicnews.json';
+import axios from 'axios';
 jest.mock('axios');
 
 describe('news requests module -- ', () => {
@@ -23,6 +23,6 @@ describe('news requests module -- ', () => {
   });
 
   afterEach(() => {
-    jest.resetAllMocks(); // clean up between each unit test; ensure clean data and mocking within each test
+    jest.clearAllMocks(); // clean up between each unit test; ensure clean data and mocking within each test
   });
 });
