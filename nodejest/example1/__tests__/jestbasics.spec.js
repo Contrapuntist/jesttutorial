@@ -1,4 +1,4 @@
-const { multiply, add } = require('./jestbasics.js');
+const { multiply, add } = require('../jestbasics.js');
 describe('jest basics',  () => {
   it('multiply function should return result of two multiplied arguments', () => {
     expect.hasAssertions();

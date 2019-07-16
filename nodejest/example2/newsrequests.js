@@ -8,7 +8,7 @@ const axios = require('axios');
 
  function getNews() {
   const url = `https://content.guardianapis.com/search?section=music&order-by=newest&show-fields=all&q=rock&api-key=${config().guardian}`;
-  console.log('==== fetching news ====');
+  //console.log('==== fetching news ====');
   return axios.get(url);
 }
 
