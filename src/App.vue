@@ -26,11 +26,15 @@ export default {
     getNews: function() {
       const url = `https://content.guardianapis.com/search?section=music&order-by=newest&show-fields=all&q=rock&api-key=${config().guardian}`;
       return axios.get(url).then(response => {
-        return this.parseResults(response);
+        const articles = res.data.response.results;
+        console.log(articles);
+        return this.parseResults(articles);
+      }).catch(err => {
+        return this.parseResults(tempdata.data.response.results);
       })
     },
-    parseResults: function (res = tempdata) {
-      return res.data.response.results.map(article => {
+    parseResults: function (res) {
+      return res.map(article => {
         return {
           headline: article.fields.headline,
           articleText: article.fields.bodyText,
@@ -47,7 +51,7 @@ export default {
   <div>
     <Header />
     <div>{{ msg }}</div>
-    <news-section :news="news" />
+    <news-section :articles="news" />
   </div>
 </template>
 

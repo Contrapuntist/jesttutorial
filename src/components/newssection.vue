@@ -1,6 +1,12 @@
 <template>
   <div>
-    
+    <news-card 
+      v-for="(article, index) in articles" 
+      :key="index"
+      :headline="article.headline" 
+      :articleText="article.articleText" 
+      :byline="article.author" 
+      :url="article.url"/>
   </div>
 </template>
 
@@ -13,9 +19,9 @@ export default {
     NewsCard
   },
   props: {
-    news: {
+    articles: {
       type: Array,
-      default: [],
+      default: () => [],
       required: true
     }
   }
