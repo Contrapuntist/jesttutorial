@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      msg: 'hello jest and vue testing',
+      sectionTitle: 'Music News',
       news: [],
     };
   },
@@ -37,7 +37,7 @@ export default {
       return res.map(article => {
         return {
           headline: article.fields.headline,
-          articleText: article.fields.bodyText,
+          articleText: article.fields.body,
           author: article.fields.byline,
           url: article.webUrl
         };
@@ -50,12 +50,23 @@ export default {
 <template>
   <div>
     <Header />
-    <div>{{ msg }}</div>
-    <news-section :articles="news" />
+    <div class="cntr">
+      <h2 class="sectionTitle">{{ sectionTitle }}</h2>
+      <news-section :articles="news" />
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style>
+  .cntr {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+  }
+
+  .sectionTitle {
+    margin-bottom: 25px;
+  }
 
 </style>
 

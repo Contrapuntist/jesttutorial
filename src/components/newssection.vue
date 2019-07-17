@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <section class="newsection">
     <news-card 
       v-for="(article, index) in articles" 
       :key="index"
       :headline="article.headline" 
       :articleText="article.articleText" 
       :byline="article.author" 
-      :url="article.url"/>
-  </div>
+      :url="article.url" 
+      class="cards"/>
+  </section>
 </template>
 
 <script>
@@ -29,4 +30,11 @@ export default {
 </script>
 
 <style>
+  .newssection {
+    width: 1200px;
+  }
+
+  .cards {
+    margin-bottom: 15px;
+  }
 </style>
