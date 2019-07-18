@@ -3,7 +3,7 @@
     <div class="headline">{{ headline }}</div>
     <div class="byline">{{ byline !== '' ? `Written by ${byline}` : 'Author unknown' }}</div>
     <div v-html="articleText"></div>
-    <div>Source: <a :href="url"> {{ url }}</a></div>
+    <div class="source">Source: <a :href="url"> {{ url }}</a></div>
   </div>
 </template>
 
@@ -19,9 +19,6 @@ export default {
 </script>
 
 <style>
-  .article {
-    margin-bottom: 50px;
-  }
   
   .article h2 {
     display: none;
@@ -39,4 +36,7 @@ export default {
     margin-bottom: 10px;
   }
 
+  .source{
+    text-align: end;
+  }
 </style>

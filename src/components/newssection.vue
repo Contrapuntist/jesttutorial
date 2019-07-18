@@ -35,6 +35,6 @@ export default {
   }
 
   .cards {
-    margin-bottom: 15px;
+    margin-bottom: 50px;
   }
 </style>

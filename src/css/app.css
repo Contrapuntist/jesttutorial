@@ -35,3 +35,7 @@ a {
   text-decoration: dashed;
   color: #5085a5;
 }
+
+figure {
+  margin: 12px 0;
+}
