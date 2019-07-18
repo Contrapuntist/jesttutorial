@@ -1,4 +1,4 @@
-const config = require('./../../apiconfig');
+const config = require('../../apiconfig');
 const axios = require('axios');
 
 /**

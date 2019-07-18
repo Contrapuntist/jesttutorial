@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/47402005/jest-mock-how-to-mock-es6-class-default-import-using-factory-parameter
 
-import * as parseNews from './../processnews';
+import * as parseNews from '../parseNews';
 import axios from 'axios';
 import mockData from './../../../data/musicnews.json'; // mocked data from guardian api response
 
