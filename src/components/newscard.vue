@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'newscard',
   props:{
     headline: { type: String, default: ''},
     byline: { type: String, default: '' },

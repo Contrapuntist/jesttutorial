@@ -49,22 +49,26 @@ describe('-- App.vue -->  load cmp with beforeEach', () => {
 describe('-- App.vue -->  mount cmp in each test', () => {
   let cmp; // my component variable to mount component. Made global since all tests can use same value.
   beforeEach(() => {
-    axios.get.mockResolvedValue(mockData);
+    axios.get.mockImplementationOnce(() => Promise.resolve([]));
   });
 
   it('does news prop have data', () => {
-    const stub = [
+    const propsData = [
       { 
         headline: 'Trailer to Top Gun sequal revealed',
         articleText: '<p>Thirty fours after the original release of Top Gun, Tom Cruise surprised Comic-Con attendees with a new trailer...</p>',
         author: 'Goose\'s ghost',
-        url: article.web
+        url: 'https://stubbedurl.com'
       }
     ]; 
-    const propsData = { news: stub }
     
-
-    cmp = mount(App, {localVue, })
+    cmp = mount(App, { localVue });
+    cmp.setMethods({ getNews: jest.fn() }); // mock getNews to avoid errors related to promise 
+    cmp.setData({news: propsData});
+    expect(cmp.contains(NewsSection)).toBe(true); 
+    expect(cmp.vm.news).toEqual(propsData);
+    const text = cmp.text();
+    expect(text.includes('Trailer to Top Gun sequal revealed')).toBe(true);
   });
 
 });
