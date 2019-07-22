@@ -1,5 +1,5 @@
 import App from './../App.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, shallowMount, mount } from '@vue/test-utils';
 import axios from 'axios';
 import mockData from './../../data/musicnews.json';
 import NewsSection from './../components/newssection.vue';
@@ -7,7 +7,7 @@ import NewsSection from './../components/newssection.vue';
 jest.mock('axios'); // method calls axios.get
 const localVue = createLocalVue(); // don't pollute global vue instance 
 
-describe('-- App.vue --', () => {
+describe('-- App.vue -->  load cmp with beforeEach', () => {
   let cmp; // my component variable to mount component. Made global since all tests can use same value.
   beforeEach(() => {
     axios.get.mockResolvedValue(mockData);
@@ -44,4 +44,27 @@ describe('-- App.vue --', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
+});
+
+describe('-- App.vue -->  mount cmp in each test', () => {
+  let cmp; // my component variable to mount component. Made global since all tests can use same value.
+  beforeEach(() => {
+    axios.get.mockResolvedValue(mockData);
+  });
+
+  it('does news prop have data', () => {
+    const stub = [
+      { 
+        headline: 'Trailer to Top Gun sequal revealed',
+        articleText: '<p>Thirty fours after the original release of Top Gun, Tom Cruise surprised Comic-Con attendees with a new trailer...</p>',
+        author: 'Goose\'s ghost',
+        url: article.web
+      }
+    ]; 
+    const propsData = { news: stub }
+    
+
+    cmp = mount(App, {localVue, })
+  });
+
 });
