@@ -1,5 +1,7 @@
 const { multiply, add, getInitials } = require('../jestbasics.js');
 
+// You do not need to import Jest into a test suite.  
+
 describe('jest basics',  () => {
   it('multiply function should return result of two multiplied arguments', () => {
     expect.hasAssertions();

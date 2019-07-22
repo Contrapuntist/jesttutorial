@@ -29,7 +29,6 @@ describe('-- App.vue -->  load cmp with beforeEach', () => {
 
   it('When App.vue loads, should contain "Music news" text', () => {
     const div = cmp.find('div');
-    console.log(div.text());
     expect(div.text()).toEqual('Music News');
   });
   
@@ -52,7 +51,7 @@ describe('-- App.vue -->  mount cmp in each test', () => {
     axios.get.mockImplementationOnce(() => Promise.resolve([]));
   });
 
-  it('does news prop have data', () => {
+  it('news data prop should display stub data', () => {
     const propsData = [
       { 
         headline: 'Trailer to Top Gun sequal revealed',
@@ -65,10 +64,40 @@ describe('-- App.vue -->  mount cmp in each test', () => {
     cmp = mount(App, { localVue });
     cmp.setMethods({ getNews: jest.fn() }); // mock getNews to avoid errors related to promise 
     cmp.setData({news: propsData});
-    expect(cmp.contains(NewsSection)).toBe(true); 
     expect(cmp.vm.news).toEqual(propsData);
     const text = cmp.text();
     expect(text.includes('Trailer to Top Gun sequal revealed')).toBe(true);
   });
+
+  it('news data prop should not include not include wrong data', () => {
+    const propsData = [
+      { 
+        headline: 'Trailer to Top Gun sequal revealed',
+        articleText: '<p>Thirty fours after the original release of Top Gun, Tom Cruise surprised Comic-Con attendees with a new trailer...</p>',
+        author: 'Goose\'s ghost',
+        url: 'https://stubbedurl.com'
+      }
+    ]; 
+    
+    cmp = mount(App, { localVue });
+    cmp.setMethods({ getNews: jest.fn() }); // mock getNews to avoid errors related to promise '.then not recognized' 
+    cmp.setData({news: propsData});
+    expect(cmp.vm.news).toEqual(propsData);
+    const text = cmp.text();
+    //console.log(cmp.vm.getNews);
+    const mockedGetNews = cmp.vm.getNews;
+    expect(mockedGetNews._isMockFunction).toBe(true);
+
+    // should not have mocked axios data sine getNews method is mocked and never calls axios. 
+    expect(text.includes('Palace: Life After review – indie trio find new force')).not.toBe(true); // could also be .toBe(false)
+
+  });
+
+  it('should have a news section component', () => {
+    cmp = mount(App, { localVue });
+    expect(cmp.contains(NewsSection)).toBe(true); 
+  })
+
+
 
 });
