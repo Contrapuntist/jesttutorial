@@ -28,7 +28,17 @@ describe('Processing news', () => {
     //console.log(processnewsSpy)
   });
 
-  it.todo('write test for makeNewsArr function');
+  it('write test for makeNewsArr function', () => {
+    const mockedResponse = { ...mockData };
+    
+    const parsedArr = parseNews.makeNewsArr(mockedResponse.data.response.results);
+    expect(Array.isArray(parsedArr)).toBe(true);
+
+    const positionTwo = parsedArr[1];
+    expect(typeof positionTwo).toEqual('object');
+    
+    expect(positionTwo.author).toBe('Tara Joshi');
+  });
 
 
   afterEach(() => {

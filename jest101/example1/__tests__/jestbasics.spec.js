@@ -23,7 +23,17 @@ describe('jest basics',  () => {
    * - Second should either consider results for no arguments or one
    * - If you have time, think of additional test opportunities  
    */
-  it.todo('add'); // also it.skip for broken tests jest v.24+
+  it('addition function returns two added arguments when included', () => {
+    const addWithArgs = add(10, 25);
+    expect(addWithArgs).toBe(35);
+
+    const addWithOneArg = add(10);
+    expect(addWithOneArg).toBe(10);
+
+    const addwithNoArgs = add();
+    expect(typeof addwithNoArgs).toBe('string');
+    expect(addwithNoArgs).toEqual('Unable to add with missing arguments');
+  });
 
 
   /**
@@ -37,6 +47,12 @@ describe('jest basics',  () => {
    * - failure matcher options:  .toBeNull(), .toBeFalsy() 
    */
 
-  it.todo('getInitial returns capitlazed initials or null');
+  it('getInitial returns capitlazed initials or null', () => {
+    const success = getInitials('miguel', 'cano');
+    expect(success).toBe('MC');
+
+    const fail = getInitials('miguel', '');
+    expect(fail).toBeNull();
+  });
 
 });
