@@ -4,8 +4,7 @@ export function multiply(a, b) {
 }
 
 export function add(a, b = 0) {
-  
-  if (!a) {
+  if (a === undefined) {
     return 'Unable to add with missing arguments';
   }
 
