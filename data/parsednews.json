@@ -1,0 +1,28 @@
+{
+  "data": [
+    { 
+      "headline": "Trailer to Top Gun sequal revealed",
+      "articleText": "<p>Thirty fours after the original release of Top Gun, Tom Cruise surprised Comic-Con attendees with a new trailer...</p>",
+      "author": "Goose's ghost",
+      "url": "https://stubbedurl.com/topgunsequel"
+    },
+    { 
+      "headline": "Marvel set to rule movie theaters for next two years",
+      "articleText": "<p>Marvel released phase 4 at Comic-con in San Diego over the weekend...</p>",
+      "author": "Stan Lee's Ghost",
+      "url": "https://stubbedurl.com/marvelphase4"
+    },
+    { 
+      "headline": "Everything coming to Netflix This Week",
+      "articleText": "<p>It's sad but true, but 'Orange is the New Black' Season 7, the final one, will be hitting the streaming platform this week...</p>",
+      "author": "Netflix Obsessed",
+      "url": "https://stubbedurl.com/netflixthisweek"
+    },
+    { 
+      "headline": "The Lion King feature film breaks records during it's opening weekend",
+      "articleText": "<p>Lion feature remake broke records this weekend...</p>",
+      "author": "Cranky Movie Watcher",
+      "url": "https://stubbedurl.com"
+    }
+  ]
+}
