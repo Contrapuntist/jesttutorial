@@ -33,4 +33,13 @@ describe('== News Section component ==', () => {
     expect(cmp.contains('section')).toBe(true);
   });
 
+  // problem with findAll method ... 
+  // it('has multiple instances of vue card', () => {
+  //   cmp = mount(NewsSection, { localVue, propsData });
+  //   expect(cmp.contains(NewsCard)).toBe(true);
+  //   const allCards = cmp.findAll('article');
+  //   console.log(allCards);
+  //   console.log(cmp.html());
+  // });
+
 });
