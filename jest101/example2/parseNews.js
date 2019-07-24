@@ -3,8 +3,7 @@ const { getNews } = require('./newsrequests');
 export function processNews() {
   return getNews()
     .then(res => {
-      const newsArr = makeNewsArr(res.data.response.results)
-      return newsArr;
+      return makeNewsArr(res.data.response.results)
     })
     .catch(err => console.log(err)); 
 }

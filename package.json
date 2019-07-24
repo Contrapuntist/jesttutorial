@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js --open",
     "test": "jest",
     "test:basics": "jest jest101/example1/__tests__/jestbasics.spec.js",
-    "test:news": "jest jest101/example2/__tests__/requestnews.spec.js",
+    "test:news": "jest jest101/example2/__tests__/newsrequests.spec.js",
     "test:parse": "jest jest101/example2/__tests__/parseNews.spec.js",
     "test:app": "jest src/__tests__/app.spec.js",
     "test:section": "jest src/__tests__/newssection.spec.js",

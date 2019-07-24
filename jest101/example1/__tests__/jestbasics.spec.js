@@ -1,4 +1,4 @@
-const { multiply, add, getInitials } = require('../jestbasics.js');
+import { multiply, add, getInitials } from './../jestbasics.js';
 
 // You do not need to import Jest into a test suite.  
 
@@ -7,13 +7,13 @@ describe('jest basics',  () => {
     expect.hasAssertions();
 
     const multiplied = multiply(2, 3);
+    
     expect(multiplied).toBe(6); 
     expect(multiplied).toEqual(6);
     expect(multiplied).not.toEqual(5);
-
   });
 
-  it('multiply function returns a number', () => {
+  it('multiply function returns a number type', () => {
     const multiplied = multiply(2, 3);
     expect(typeof multiplied).toBe('number')
     expect(typeof multiplied).not.toBe('boolean');
@@ -24,6 +24,8 @@ describe('jest basics',  () => {
    * - One should consider when two arguments are passed. 
    * - Second should either consider results for no arguments or one
    * - If you have time, think of additional test opportunities  
+   * 
+   * https://jestjs.io/docs/en/expect
    */
   it.todo('add'); // also it.skip for broken tests jest v.24+
 
@@ -37,6 +39,8 @@ describe('jest basics',  () => {
    * Hints: 
    * - success matcher options: .toBe() .toMatch() 
    * - failure matcher options:  .toBeNull(), .toBeFalsy() 
+   * 
+   * https://jestjs.io/docs/en/expect
    */
 
   it.todo('getInitial returns capitlazed initials or null');

@@ -13,7 +13,8 @@ describe('Processing news', () => {
     //console.log(parsedNews);
     expect(axios.get).toHaveBeenCalled(); 
     expect(Array.isArray(parsedNews)).toBe(true);
-    expect(typeof parsedNews[0]).toBe('object');
+    expect(typeof parsedNews[0]).toBe('object'); 
+    // could setup loop to check each value in the array is an object
   });
 
   it('processNews function ', async () => {
