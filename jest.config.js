@@ -27,6 +27,11 @@ module.exports = {
     "/node_modules/",
     "/coverage/",
   ],
+  testMatch: [ 
+    "**/__tests__/**/*.[jt]s?(x)", 
+    "**/?(*.)+(spec|test).[jt]s?(x)",
+    "**/__integration__/**/*.steps.js"
+  ]
   // "coverageThreshold": {
   //   "global": { // With this configuration, jest will fail if there is less than 80% branch, line, and function coverage, or if there are more than 10 uncovered statements:
   //     "branches": 80,

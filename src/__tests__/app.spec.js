@@ -66,6 +66,8 @@ describe('-- App.vue -->  mount cmp in each test', () => {
     cmp.setData({news: propsData});
     expect(cmp.vm.news).toEqual(propsData);
     const text = cmp.text();
+    const html = cmp.html();
+    console.log(cmp.vm);
     expect(text.includes('Trailer to Top Gun sequal revealed')).toBe(true);
   });
 

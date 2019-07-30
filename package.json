@@ -42,6 +42,7 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-jest": "^24.8.0",
     "jest": "^24.8.0",
+    "jest-cucumber": "^2.0.11",
     "jest-serializer-vue": "^2.0.2",
     "nodemon": "^1.19.1",
     "vue-jest": "^3.0.4",
